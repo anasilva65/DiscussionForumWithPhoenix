@@ -2,6 +2,7 @@ defmodule Discuss.Repo.Migrations.AddTopics do
   use Ecto.Migration
 
   def change do
-
-  end
+    create table(:topics) do
+    add :title, :string
+    end
 end
