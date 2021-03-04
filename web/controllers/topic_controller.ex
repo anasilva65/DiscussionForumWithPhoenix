@@ -15,7 +15,11 @@ defmodule Discuss.TopicController do
       {:ok, post} -> IO.inspect(post)
       {:error, changeset} ->
         render conn, "new.html", changeset: changeset
-
     end
+  end
+  
+  def index(conn, _params) do
+    topics = Repo.all(Topic)
+    render conn, "index.html", topics: topics
   end
 end
