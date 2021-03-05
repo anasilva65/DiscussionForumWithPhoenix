@@ -1,0 +1,7 @@
+<h5>Topics</h5>
+
+<ul class="collection">
+  <%= for topic <- @topics do %>
+   </li>
+  <% end %>
+</ul>
