@@ -9,4 +9,5 @@ defmodule Discuss.Repo.Migrations.AddComments do
 
       timestamps()
   end
+ end
 end
