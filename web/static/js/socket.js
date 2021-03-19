@@ -10,6 +10,8 @@ channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })
 
+  channel.on(`comments:${topicId}:new`, renderComment);
+  
   document.querySelector('button').addEventListener('click', () => 
   {
     const content = document.querySelector('textarea').value;
