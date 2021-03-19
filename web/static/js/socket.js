@@ -11,7 +11,7 @@ channel.join()
   .receive("error", resp => { console.log("Unable to join", resp) })
 
   channel.on(`comments:${topicId}:new`, renderComment);
-  
+
   document.querySelector('button').addEventListener('click', () => 
   {
     const content = document.querySelector('textarea').value;
@@ -26,6 +26,12 @@ function renderComments(comments) {
   });
 
   document.querySelector('.collection').innerHTML = renderedComments.join('');
+}
+
+function renderComment(event) {
+  const renderedComment = commentTemplate(event.comment);
+
+  document.querySelector('.collection').innerHTML += renderedComment;
 }
 
 window.createSocket = createSocket;
