@@ -10,7 +10,8 @@ defmodule Discuss.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
-     deps: deps()]
+     deps: deps()
+    ]
   end
 
   # Configuration for the OTP application.
@@ -33,13 +34,15 @@ defmodule Discuss.Mixfile do
     [{:phoenix, "~> 1.2.5"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_ecto, "~> 3.0"},
-     {:postgrex, ">= 0.0.0"},
+     {:postgrex, "~> 0.12.2"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:ueberauth, "~> 0.3"},
-     {:ueberauth_github, "~> 0.4"}]
+     {:ecto, "~> 2.0"},
+     {:ueberauth_github, "~> 0.4"}
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
@@ -49,8 +52,10 @@ defmodule Discuss.Mixfile do
   #
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
-    ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+    [
+     "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
      "ecto.reset": ["ecto.drop", "ecto.setup"],
-     "test": ["ecto.create --quiet", "ecto.migrate", "test"]]
+     "test": ["ecto.create --quiet", "ecto.migrate", "test"]
+    ]
   end
 end
